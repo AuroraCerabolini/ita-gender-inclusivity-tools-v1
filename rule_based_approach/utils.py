@@ -60,13 +60,13 @@ def identify_nouns_to_modify(word_list: List[Tuple[spacy.tokens.token.Token, int
                     if str(word[0]).lower() in trigger_words['maschile_singolare'].str.lower().tolist():
                         index = trigger_words[trigger_words['maschile_singolare'].str.lower() == str(word[0]).lower()].index[0]
                         if trigger_words['femminile_singolare'][index].lower() == str(child):
-                            result.append((word, f'Per la parola \x1B[3m{word[0]}\x1B[0m sono presenti sia la forma maschile sia la forma femminile'))
+                            result.append((word, f'For the noun \x1B[3m{word[0]}\x1B[0m both the male and female forms are present'))
                 if child.pos_ == "NOUN" and child.morph.get("Gender") and child.morph.get("Gender")[0] == "Fem" and \
                         child.morph.get("Number") and child.morph.get("Number")[0] == "Plur":
                     if str(word[0]).lower() in trigger_words['maschile_plurale'].str.lower().tolist():
                         index = trigger_words[trigger_words['maschile_plurale'].str.lower() == str(word[0]).lower()].index[0]
                         if trigger_words['femminile_plurale'][index].lower() == str(child):
-                            result.append((word, f'Per la parola \x1B[3m{word[0]}\x1B[0m sono presenti sia la forma maschile sia la forma femminile'))
+                            result.append((word, f'For the noun \x1B[3m{word[0]}\x1B[0m both the male and female forms are present'))
 
         # Check conjunctions and the presence of both feminine and masculine forms
         if word[0].dep_ == 'conj':
@@ -76,13 +76,13 @@ def identify_nouns_to_modify(word_list: List[Tuple[spacy.tokens.token.Token, int
                 if str(word[0]).lower() in trigger_words['maschile_singolare'].str.lower().tolist():
                     index = trigger_words[trigger_words['maschile_singolare'].str.lower() == str(word[0]).lower()].index[0]
                     if trigger_words['femminile_singolare'][index].lower() == str(head):
-                        result.append((word, f'Per la parola \x1B[3m{word[0]}\x1B[0m sono presenti sia la forma maschile sia la forma femminile'))
+                        result.append((word, f'For the noun \x1B[3m{word[0]}\x1B[0m both the male and female forms are present'))
             if head.pos_ == "NOUN" and head.morph.get("Gender") and head.morph.get("Gender")[0] == "Fem" and \
                     head.morph.get("Number") and head.morph.get("Number")[0] == "Plur":
                 if str(word[0]).lower() in trigger_words['maschile_plurale'].str.lower().tolist():
                     index = trigger_words[trigger_words['maschile_plurale'].str.lower() == str(word[0]).lower()].index[0]
                     if trigger_words['femminile_plurale'][index].lower() == str(head):
-                        result.append((word, f'Per la parola \x1B[3m{word[0]}\x1B[0m sono presenti sia la forma maschile sia la forma femminile'))
+                        result.append((word, f'For the noun \x1B[3m{word[0]}\x1B[0m both the male and female forms are present'))
 
         # Check for feminine and masculine forms with a comma
         for child in word[0].head.children:
@@ -91,13 +91,13 @@ def identify_nouns_to_modify(word_list: List[Tuple[spacy.tokens.token.Token, int
                 if str(word[0]).lower() in trigger_words['maschile_singolare'].str.lower().tolist():
                     index = trigger_words[trigger_words['maschile_singolare'].str.lower() == str(word[0]).lower()].index[0]
                     if trigger_words['femminile_singolare'][index].lower() == str(child):
-                        result.append((word, f'Per la parola \x1B[3m{word[0]}\x1B[0m sono presenti sia la forma maschile sia la forma femminile'))
+                        result.append((word, f'For the noun \x1B[3m{word[0]}\x1B[0m both the male and female forms are present'))
             if child.pos_ == "NOUN" and child.morph.get("Gender") and child.morph.get("Gender")[0] == "Fem" and \
                     child.morph.get("Number") and child.morph.get("Number")[0] == "Plur":
                 if str(word[0]).lower() in trigger_words['maschile_plurale'].str.lower().tolist():
                     index = trigger_words[trigger_words['maschile_plurale'].str.lower() == str(word[0]).lower()].index[0]
                     if trigger_words['femminile_plurale'][index].lower() == str(child):
-                        result.append((word, f'Per la parola \x1B[3m{word[0]}\x1B[0m sono presenti sia la forma maschile sia la forma femminile'))
+                        result.append((word, f'For the noun \x1B[3m{word[0]}\x1B[0m both the male and female forms are present'))
 
     # Remove words from to_modify that are already in result
     for el in result:
@@ -119,7 +119,7 @@ def identify_nouns_to_modify(word_list: List[Tuple[spacy.tokens.token.Token, int
     return to_modify
 
 
-def modify_sentence_based_on_rules(doc: spacy.tokens.doc.Doc, nouns_to_modify: List[Tuple[spacy.tokens.token.Token, int]], trigger_words: DataFrame, articles: Dict, adjectives: Dict):
+def modify_sentence_based_on_rules(doc: spacy.tokens.doc.Doc, nouns_to_modify: List[Tuple[spacy.tokens.token.Token, int]], trigger_words: DataFrame, articles: Dict, adjectives: Dict) -> str:
     """
     Modifies specific words in a sentence based on given trigger words and rules.
 
@@ -127,8 +127,8 @@ def modify_sentence_based_on_rules(doc: spacy.tokens.doc.Doc, nouns_to_modify: L
     doc (spacy.tokens.doc.Doc): The input sentence as a spaCy Doc object.
     words_to_modify (list): A list of tuples containing words and their indices in the sentence.
     trigger_words (dict): A dictionary containing trigger words categorized by masculine and feminine forms.
-    articoli (dict): A dictionary mapping masculine articles to their corresponding feminine articles.
-    agg (dict): A dictionary mapping masculine adjectives to their corresponding feminine adjectives.
+    articles (dict): A dictionary mapping masculine articles to their corresponding feminine articles.
+    adjectives (dict): A dictionary mapping masculine adjectives to their corresponding feminine adjectives.
 
     Returns:
     str: The modified sentence.
