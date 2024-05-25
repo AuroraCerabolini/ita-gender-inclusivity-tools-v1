@@ -1,0 +1,20 @@
+Per scrivere una frase utilizzando un linguaggio inclusivo di genere, si possono adottare due strategie:
+
+1. Dare visibilità a entrambi i generi, cioè includere esplicitamente sia la forma maschile sia la forma femminile.
+   - Esempio:
+     - Frase originale: "La Commissione si riserva di invitare i candidati a un colloquio con un preavviso di almeno 20 giorni."
+     - Frase riscritta: "La Commissione si riserva di invitare le candidate e i candidati a un colloquio con un preavviso di almeno 20 giorni."
+   - Esempio:
+     - Frase originale: "Studente iscritto agli Istituti Superiori di Studi Musicali e Coreutici."
+     - Frase riscritta: "Studentessa o studente iscritto agli Istituti Superiori di Studi Musicali e Coreutici."
+
+2. Non specificare il genere, cioè utilizzare forme impersonali o neutre.
+   - Esempio:
+     - Frase originale: "La scelta vincola lo studente per due anni accademici."
+     - Frase riscritta: "La scelta è vincolante per due anni accademici."
+   - Esempio:
+     - Frase originale: "Lo studente potrà solamente rifiutare il voto."
+     - Frase riscritta: "Si potrà solamente rifiutare il voto."
+
+Riscrivi la seguenti frasi, utilizzando per ogni frase solo una strategia di riscrittura:
+<elenco puntato di frasi da riscrivere>
