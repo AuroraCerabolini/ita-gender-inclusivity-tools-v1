@@ -1,2 +1,2 @@
 # ita-gender-inclusivity-tools
-Official repository of the paper "Automating Gender-Inclusive Language Modification in Italian University Administrative Documents"
+Official repository of the paper: Cerabolini, A., Pasi, G., Viviani, M. (2024). Automating Gender-Inclusive Language Modification in Italian University Administrative Documents. In: Rapp, A., Di Caro, L., Meziane, F., Sugumaran, V. (eds) Natural Language Processing and Information Systems. NLDB 2024. Lecture Notes in Computer Science, vol 14762. Springer, Cham. https://doi.org/10.1007/978-3-031-70239-6_23
